@@ -1,0 +1,26 @@
+{
+  "name": "archetypal-cards-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for generating archetypal cards",
+  "main": "src/bot.js",
+  "scripts": {
+    "start": "node src/bot-with-emojis.js",
+    "dev": "nodemon src/bot-with-emojis.js",
+    "check": "node check-config.js",
+    "pm2": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop archetypal-bot",
+    "pm2:restart": "pm2 restart archetypal-bot"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0",
+    "openai": "^4.20.1",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": ["telegram", "bot", "archetypal", "cards", "psychology"],
+  "author": "Albert Musaev",
+  "license": "MIT"
+}
