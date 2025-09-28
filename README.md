@@ -1,136 +1,134 @@
-# 🤖 Telegram-бот «Архетипические карты»
+# 🎭 Telegram Bot for Archetypal Cards
 
-Telegram-бот для генерации персонализированных метафорических карт через OpenAI. Помогает пользователям осознавать своё состояние и находить ресурсы для перехода через архетипические образы.
+A professional Telegram bot that generates archetypal cards based on user's psychological state using OpenAI's GPT-4.1 and DALL-E 3.
 
-## ✨ Возможности
+## ✨ Features
 
-- 🎯 **Диалоговый поток**: Пошаговое взаимодействие согласно сценарию
-- 🃏 **Две карты**: Состояние + Ресурс/Переход
-- 🎨 **Визуальные образы**: Генерация изображений через DALL-E 3
-- 🧠 **Архетипические интерпретации**: Глубокий анализ через GPT-4
-- 💾 **Управление сессиями**: Сохранение состояния каждого пользователя
-- 🔄 **Повторные сессии**: Возможность создания новых карт
+- 🤖 **GPT-4.1** for high-quality text generation
+- 🎨 **DALL-E 3** for beautiful archetypal images
+- 📝 **Rules of editing by Maxim Ilyakhov** for clear and understandable text
+- 😊 **Emojis** in key moments for better UX
+- 🔘 **Inline buttons** for convenient interaction
+- 🎭 **Unified style** of images (oil painting, tarot cards)
+- 🌉 **Three cards**: State, Resource, Transition
+- 💡 **Practical recommendations** from CBT
+- 🏥 **Link to psychotherapist**
+- ⚡ **Optimized for high load**
 
-## 🚀 Быстрый старт
+## 🚀 Quick Deploy
 
-### 1. Установка зависимостей
+### Option 1: Railway.app (Recommended)
+1. Fork this repository
+2. Go to [railway.app](https://railway.app)
+3. Sign in with GitHub
+4. Click "New Project" → "Deploy from GitHub repo"
+5. Select your forked repository
+6. Add environment variables:
+   - `TELEGRAM_BOT_TOKEN` = your bot token
+   - `OPENAI_API_KEY` = your OpenAI API key
+7. Deploy! 🎉
 
-```bash
-npm install
-```
+### Option 2: Render.com
+1. Fork this repository
+2. Go to [render.com](https://render.com)
+3. Sign in with GitHub
+4. Click "New Web Service"
+5. Connect your repository
+6. Settings:
+   - Build Command: `npm install`
+   - Start Command: `node src/bot-with-emojis.js`
+7. Add environment variables
+8. Deploy! 🎉
 
-### 2. Настройка переменных окружения
+## 🔧 Local Development
 
-Скопируйте `env.example` в `.env` и заполните:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/albertmusaev/archetypal-cards-bot.git
+   cd archetypal-cards-bot
+   ```
 
-```bash
-cp env.example .env
-```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Отредактируйте `.env`:
-```
-TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-OPENAI_API_KEY=your_openai_api_key_here
-```
+3. Create `.env` file:
+   ```
+   TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+   OPENAI_API_KEY=your_openai_api_key
+   ```
 
-### 3. Получение токенов
+4. Run the bot:
+   ```bash
+   npm start
+   ```
 
-#### Telegram Bot Token:
-1. Напишите @BotFather в Telegram
-2. Отправьте `/newbot`
-3. Следуйте инструкциям
-4. Скопируйте полученный токен
+## 📖 Usage
 
-#### OpenAI API Key:
-1. Зайдите на https://platform.openai.com/api-keys
-2. Создайте новый API ключ
-3. Скопируйте ключ
+1. Send `/start` to the bot
+2. Describe your current state in one word or phrase
+3. Get three archetypal cards:
+   - **State Card** - your current psychological state
+   - **Resource Card** - your inner resources
+   - **Transition Card** - the bridge between them
+4. Receive practical recommendations and analysis
 
-### 4. Запуск бота
+## 🎯 Bot Scenario
 
-```bash
-npm start
-```
+1. **Greeting**: Simple and welcoming
+2. **State Input**: One word or phrase about feelings
+3. **Card 1 - State**: Metaphorical description of current state
+4. **Card 2 - Resource**: Inner resources for transition
+5. **Card 3 - Transition**: Bridge between state and resource
+6. **Summary**: Key insights and practical action
 
-Для разработки с автоперезагрузкой:
-```bash
-npm run dev
-```
+## 🛠️ Technical Details
 
-## 📋 Пользовательский сценарий
+- **Node.js** with Telegram Bot API
+- **OpenAI GPT-4.1** for text generation
+- **DALL-E 3** for image generation
+- **Optimized prompts** for consistent image style
+- **Error handling** and logging
+- **Session management** for user interactions
+- **Memory optimization** for high load
 
-1. **Начало**: Пользователь отправляет `/start`
-2. **Описание состояния**: Короткое описание текущего состояния
-3. **Метафора**: Образ места/картины для состояния
-4. **Карта №1**: Визуальная карта состояния с интерпретацией
-5. **Отклик на карту №1**: Что откликается в карте
-6. **Карта №2**: Карта ресурса для перехода
-7. **Отклик на карту №2**: Личная интерпретация ресурса
-8. **Завершение**: Сводка и возможность новой сессии
+## 📊 Monitoring
 
-## 🛠 Технические детали
+- Automatic restart on failures
+- Detailed logging
+- Performance metrics
+- Error tracking
 
-### Архитектура
-- **Node.js** + **node-telegram-bot-api** для Telegram
-- **OpenAI API** для генерации текста и изображений
-- **In-memory сессии** для управления состоянием пользователей
+## 💰 Cost
 
-### Модели AI
-- **GPT-4** для генерации текстовых интерпретаций
-- **DALL-E 3** для создания визуальных образов карт
+- **Railway.app**: Free (500 hours/month)
+- **Render.com**: Free (with limitations)
+- **OpenAI API**: Pay per use (~$0.01-0.05 per session)
 
-### Состояния диалога
-- `IDLE` - ожидание начала
-- `WAITING_FOR_STATE_DESCRIPTION` - ожидание описания состояния
-- `WAITING_FOR_METAPHOR` - ожидание метафоры
-- `WAITING_FOR_CARD1_RESPONSE` - ожидание отклика на карту состояния
-- `WAITING_FOR_CARD2_RESPONSE` - ожидание отклика на карту ресурса
-- `COMPLETED` - сессия завершена
+## 📞 Support
 
-## 🔧 Настройка и кастомизация
+- Detailed deployment guide: `DEPLOYMENT.md`
+- Quick start guide: `QUICK_DEPLOY.md`
+- Issues and questions: GitHub Issues
 
-### Изменение промптов
-Отредактируйте функции `generateStateCard()` и `generateResourceCard()` в `src/bot.js`
+## 🎨 Image Style
 
-### Добавление новых команд
-Добавьте обработчики в основной файл бота:
+All images are generated in a unified style:
+- Traditional oil painting on canvas
+- Archetypal and metaphorical illustrations
+- Foggy, mystical landscapes
+- Muted earthy colors (grays, browns, pale greens)
+- Tarot-style card composition
+- Calm, contemplative atmosphere
 
-```javascript
-bot.onText(/\/команда/, async (msg) => {
-    // логика команды
-});
-```
+## 🔒 Security
 
-### Логирование
-Все действия логируются в консоль. Для продакшена рекомендуется добавить файловое логирование.
-
-## 📊 Мониторинг
-
-Бот выводит в консоль:
-- Статус запуска
-- Обработку сообщений пользователей
-- Ошибки API
-- Состояния сессий
-
-## 🚨 Обработка ошибок
-
-- Валидация токенов при запуске
-- Обработка ошибок OpenAI API
-- Graceful fallback для изображений
-- Сброс сессий при ошибках
-
-## 📝 Лицензия
-
-MIT License
-
-## 🤝 Поддержка
-
-При возникновении проблем проверьте:
-1. Правильность токенов в `.env`
-2. Доступность интернета
-3. Логи в консоли
-4. Баланс OpenAI API
+- Environment variables for sensitive data
+- No hardcoded tokens
+- Secure API communication
+- Rate limiting and error handling
 
 ---
 
-Создано с ❤️ для самопознания и психологического развития
+**Made with ❤️ for psychological well-being**
