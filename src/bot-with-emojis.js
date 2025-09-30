@@ -182,7 +182,7 @@ async function generateStateCard(stateDescription) {
 ВАЖНО: Пиши ясно и понятно, без канцеляризмов. Используй короткие предложения, говори прямо. Избегай слов-паразитов. Будь эмоциональным и человечным. Добавляй эмодзи там, где важно передать образ и эмоцию.
 
 Для визуального описания используй этот стиль:
-"A traditional oil painting on canvas, archetypal and metaphorical illustration. A symbolic scene in a foggy, mystical landscape with muted earthy colors (grays, browns, pale greens). Visible brushstrokes, textured canvas. Composition emphasizes solitude, inner transformation, and psychological depth. The image should look like a tarot-style card, with a central symbolic object. The atmosphere is calm, contemplative, slightly surreal, evoking a sense of inner journey."
+"A traditional oil painting on canvas, archetypal and metaphorical illustration. A symbolic scene in a foggy, mystical landscape with muted earthy colors. Visible brushstrokes, textured canvas. Composition emphasizes solitude, inner transformation, and psychological depth. The image should look like a future tarot-style card, with a central symbolic object. The atmosphere is calm, contemplative, slightly surreal, evoking a sense of inner journey."
 
 Формат ответа:
 VISUAL: [описание для генерации изображения в указанном стиле]
