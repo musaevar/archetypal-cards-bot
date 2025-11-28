@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Минималистичный лендинг — разработка сайтов</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #0b0d11;
+      --fg: #e8ecf3;
+      --muted: #9aa5b5;
+      --accent: #6cf8c5;
+      --card: rgba(255, 255, 255, 0.03);
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--fg);
+      background: radial-gradient(circle at 20% 20%, rgba(108, 248, 197, 0.09), transparent 30%),
+                  radial-gradient(circle at 80% 0%, rgba(110, 139, 255, 0.12), transparent 32%),
+                  var(--bg);
+      min-height: 100vh;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: min(1100px, 100%);
+      padding: clamp(24px, 4vw, 48px);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 0 32px;
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--fg);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .pill:hover { border-color: var(--accent); background: rgba(108, 248, 197, 0.08); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      align-items: center;
+      padding: 40px 0 48px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      backdrop-filter: blur(12px);
+      background: var(--card);
+    }
+
+    h1 {
+      margin: 14px 0 12px;
+      font-size: clamp(32px, 6vw, 48px);
+      line-height: 1.1;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 17px;
+      margin: 0 0 24px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      color: var(--bg);
+      background: linear-gradient(120deg, #6cf8c5, #72d8ff);
+      border: none;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(114, 216, 255, 0.2);
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 32px rgba(114, 216, 255, 0.28); }
+
+    .hint { color: var(--muted); font-size: 14px; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+    .badge { color: #6cf8c5; font-weight: 600; }
+
+    .list { padding: 0; margin: 0; list-style: none; display: grid; gap: 10px; }
+
+    .list li { display: flex; gap: 10px; align-items: flex-start; }
+
+    .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(120deg, #6cf8c5, #72d8ff);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .process { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+
+    .process-step { border-left: 2px solid var(--border); padding-left: 14px; }
+
+    .process-step strong { display: block; margin-bottom: 6px; }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      align-items: center;
+    }
+
+    form { display: grid; gap: 12px; }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--fg);
+      font-size: 15px;
+    }
+
+    input:focus, textarea:focus { outline: 1px solid var(--accent); }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 24px 0 8px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">✦ Studio Atlas</div>
+      <a class="pill" href="#contact">Связаться</a>
+    </header>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Лендинги под результат</span>
+        <h1>Создаём минималистичные сайты, которые продают ваши идеи</h1>
+        <p class="sub">Чистый дизайн, быстрая загрузка и чёткая структура. Собираем лендинги, которые ведут к заявкам и не отвлекают от главного.</p>
+        <div class="cta-row">
+          <a class="btn" href="#contact">Обсудить проект →</a>
+          <span class="hint">Сроки от 7 дней · Помогаем с текстами и аналитикой</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">
+          <span>Срок: <strong class="badge">7–14 дней</strong></span>
+          <span>Запуск: <strong class="badge">под ключ</strong></span>
+        </div>
+        <ul class="list" style="margin-top: 18px;">
+          <li><span class="dot"></span><div><strong>Дизайн без визуального шума.</strong><br>Минимум отвлечений — максимум смысла и акцентов на оффере.</div></li>
+          <li><span class="dot"></span><div><strong>Структура, проверенная аналитикой.</strong><br>Готовые блоки под лид-магниты, оффер, социальные доказательства и призывы к действию.</div></li>
+          <li><span class="dot"></span><div><strong>Технологии на вырост.</strong><br>Адаптив, быстрая загрузка, интеграция форм, подключение метрик и A/B-тестов.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="padding: 8px 0 32px;">
+      <div class="grid">
+        <div class="card">
+          <div class="meta" style="margin-bottom: 10px;">01 · Формула оффера</div>
+          <p>Подготовим короткий оффер и лендинг-скрипт, который ведёт пользователя к целевому действию.</p>
+        </div>
+        <div class="card">
+          <div class="meta" style="margin-bottom: 10px;">02 · Дизайн-система</div>
+          <p>Создаём модульную сетку, шрифтовую пару и цветовой акцент, чтобы сайт выглядел цельно в любом блоке.</p>
+        </div>
+        <div class="card">
+          <div class="meta" style="margin-bottom: 10px;">03 · Запуск с аналитикой</div>
+          <p>Настраиваем формы, события, Pixel/GA, чтобы отслеживать конверсию и улучшать блоки по данным.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-bottom: 24px;">
+      <div class="meta" style="margin-bottom: 10px;">Как работаем</div>
+      <div class="process">
+        <div class="process-step"><strong>Бриф</strong>Выясняем задачу, аудиторию и KPI. Предлагаем структуру страницы.</div>
+        <div class="process-step"><strong>Прототип</strong>Собираем кликабельный черновик, согласовываем смысловые блоки.</div>
+        <div class="process-step"><strong>Дизайн</strong>Рисуем финальные экраны, шлифуем тексты, добавляем анимации.</div>
+        <div class="process-step"><strong>Запуск</strong>Верстаем, подключаем формы и метрики, передаем инструкции по росту.</div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div>
+        <div class="eyebrow">Начать проект</div>
+        <h2 style="margin: 14px 0 10px;">Расскажите о задаче — предложим решение за 24 часа</h2>
+        <p class="sub" style="margin: 0 0 16px;">Пришлём предложение с бюджетом, таймлайном и вариантом визуальной концепции. Работаем прозрачно и по фиксированной смете.</p>
+        <div class="meta"><span>Доступные слоты: <strong class="badge">2 проекта</strong></span></div>
+      </div>
+      <form>
+        <input type="text" placeholder="Имя" required>
+        <input type="email" placeholder="Email или Telegram" required>
+        <textarea rows="4" placeholder="Расскажите о продукте и целях" required></textarea>
+        <button class="btn" type="submit" style="justify-content: center;">Отправить запрос</button>
+      </form>
+    </section>
+
+    <div class="footer">Готовы создать лендинг, который работает как ваш лучший менеджер. Напишите — обсудим детали.</div>
+  </div>
+</body>
+</html>
